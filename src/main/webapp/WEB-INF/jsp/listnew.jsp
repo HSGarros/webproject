@@ -20,6 +20,7 @@
         <td>title</td>
         <td>操作</td>
         <td>drop</td>
+        <td>modify</td>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
             <td>${u.title }</td>
             <td><a class="btn" href="getnew?nid=${u.id }">详细</a></td>
             <td><a class="btn" href="dropnew?nid=${u.id }">drop</a></td>
+            <td><a class="btn" href="modifynews?nid=${u.id }">modify</a></td>
         </tr>
     </c:forEach>
     </tbody>

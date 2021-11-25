@@ -39,5 +39,5 @@ public interface NewService {
      * @param id
      * @return
      */
-    public Boolean modifyNew(int id);
+    public Boolean modifyNew(int id,New n);
 }

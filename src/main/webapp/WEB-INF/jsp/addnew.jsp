@@ -14,7 +14,7 @@
 <h1>addnews</h1>
 <form action="addnews" method="post">
     <label>title<input type="text" required name="title" placeholder="请输入标题"></label><br>
-    <textarea name="content" rows="25" cols="25" required placeholder="请输入内容"></textarea>
+    <textarea name="content" rows="20" cols="150" required placeholder="请输入内容"></textarea>
     <button type="submit">submit</button>
     <button type="reset">reset</button>
 </form>

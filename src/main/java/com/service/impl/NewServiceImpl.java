@@ -99,11 +99,23 @@ public class NewServiceImpl implements NewService {
         return false;
     }
 
+
     @Override
-    public Boolean modifyNew(int id) {
-        return null;
+    public Boolean modifyNew(int id, New n) {
+        String sql = "update news set title=?,content=? where id=?";
+        try(Connection conn = DataSourceUtils.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setString(1,n.getTitle());
+            st.setString(2,n.getContent());
+            st.setInt(3,id);
+            int result=st.executeUpdate();
+            return result != 0;
+        } catch (SQLException e) {
+            logger.warning(e.getMessage());
+        }
+        return false;
     }
-    /*@Override
+/*@Override
     public void addUser(String newName) {
         String sql = "INSERT INTO user(name) VALUES(?)";
         try(Connection conn = DataSourceUtils.getConnection();

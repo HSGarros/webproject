@@ -20,7 +20,6 @@ public class GetNewsServlet extends HttpServlet {
         // 获取指定ID新闻的详细信息
         int id = Integer.parseInt(req.getParameter("nid"));
         req.setAttribute("get_new", newService.getNew(id));
-        req.setAttribute("test", "newService.getNew(id)");
         req.getRequestDispatcher("/WEB-INF/jsp/query.jsp")
                 .forward(req, resp);
 
