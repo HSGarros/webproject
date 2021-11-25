@@ -31,10 +31,6 @@
 
         }
 
-        #sidebar {
-            margin: 0 15px;
-        }
-
         ul {
             list-style: none;
         }
@@ -69,13 +65,7 @@
 </head>
 <body>
 <div class="container">
-    <div id="header">
-        <%@include file="/WEB-INF/jsp/header.jsp" %>
-    </div>
     <div id="main">
-        <div id="sidebar">
-            <%@include file="/WEB-INF/jsp/sidebar.jsp" %>
-        </div>
         <div id="article">
             <table>
                 <thead>
@@ -90,15 +80,13 @@
                     <tr>
                         <td>${v.count }</td>
                         <td>${u.title }</td>
-                        <td><a class="btn" href="getnew?nid=${u.id }">详细</a>
+                        <td><a class="btn" href="getnew?nid=${u.id }">详细</a></td>
+
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
         </div>
-    </div>
-    <div id="footer">
-        <%@include file="/WEB-INF/jsp/footer.jsp" %>
     </div>
 </div>
 

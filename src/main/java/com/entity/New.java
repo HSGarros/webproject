@@ -11,6 +11,10 @@ public class New {
     public New() {
 
     }
+    public New(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 
     public New(int id, String title, String content, Date insertTime) {
         this.id = id;

@@ -19,13 +19,25 @@ public interface NewService {
 
     /**
      * 添加新闻
-     * @param title,content
+     * @param n
      */
-    public void addNews(String title,String content);
+    public Boolean addNews(New n);
     /**
      * 基于ID获取指定新闻
      * @param id
      * @return
      */
     public New getNew(int id);
+    /**
+     * 基于ID 删除指定新闻
+     * @param id
+     * @return
+     */
+    public Boolean dropNew(int id);
+    /**
+     * 基于ID 更改指定新闻
+     * @param id
+     * @return
+     */
+    public Boolean modifyNew(int id);
 }

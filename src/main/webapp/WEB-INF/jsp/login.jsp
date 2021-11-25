@@ -16,6 +16,6 @@
   密码：<input type="password" name="pwd"><br>
   <button type="submit">登录</button>
 </form>
-<a href="/webproject_war_exploded/welcome">测试：未登录则重定向回本页</a>
+<a href="welcome">测试：未登录则重定向回本页</a>
 </body>
 </html>

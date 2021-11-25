@@ -49,8 +49,22 @@ public class NewServiceImpl implements NewService {
     }
 
     @Override
-    public void addNews(String title, String content) {
-
+    public Boolean addNews(New n) {
+        String sql = "insert into news(title,content) values (?,?)";
+        try(Connection conn = DataSourceUtils.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setString(1,n.getTitle());
+            st.setString(2,n.getContent());
+            int result=st.executeUpdate();
+            if (result != 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            logger.warning(e.getMessage());
+        }
+        return false;
     }
 
     @Override
@@ -71,7 +85,24 @@ public class NewServiceImpl implements NewService {
         return get_new;
     }
 
+    @Override
+    public Boolean dropNew(int id) {
+        String sql = "delete from news where id=?";
+        try(Connection conn = DataSourceUtils.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setInt(1,id);
+            int result=st.executeUpdate();
+            return result != 0;
+        } catch (SQLException e) {
+            logger.warning(e.getMessage());
+        }
+        return false;
+    }
 
+    @Override
+    public Boolean modifyNew(int id) {
+        return null;
+    }
     /*@Override
     public void addUser(String newName) {
         String sql = "INSERT INTO user(name) VALUES(?)";
