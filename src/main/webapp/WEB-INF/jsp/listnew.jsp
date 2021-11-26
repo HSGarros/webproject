@@ -24,6 +24,10 @@
     </tr>
     </thead>
     <tbody>
+    <form action="search" method="post">
+        <input type="text" name="title" id="title">
+        <button type="submit">submit</button>
+    </form>
     <c:forEach items="${news}" var="u" varStatus="v">
         <tr>
             <td>${v.count }</td>

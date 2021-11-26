@@ -4,7 +4,6 @@ import com.service.impl.NewServiceImpl;
 
 public class ServiceFactory {
     private static final NewService newsService = create();
-
     private static NewService create() {
         return new NewServiceImpl();
     }

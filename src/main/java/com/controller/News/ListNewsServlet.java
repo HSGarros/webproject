@@ -1,7 +1,7 @@
-package com.controller;
+package com.controller.News;
 
-import com.service.ServiceFactory;
 import com.service.NewService;
+import com.service.ServiceFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,19 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-@WebServlet("/getnew")
-public class GetNewsServlet extends HttpServlet {
-    // 基于ServiceFactory工厂，获取单例的NewsService组件
+@WebServlet("/listnews")
+public class ListNewsServlet extends HttpServlet {
     private NewService newService = ServiceFactory.getUserService();
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 获取指定ID新闻的详细信息
-        int id = Integer.parseInt(req.getParameter("nid"));
-        req.setAttribute("get_new", newService.getNew(id));
-        req.getRequestDispatcher("/WEB-INF/jsp/query.jsp")
-                .forward(req, resp);
-
+        req.setAttribute("news", newService.listFiveNews());
+        req.getRequestDispatcher("/WEB-INF/jsp/listnew.jsp").forward(req,resp);
     }
 }

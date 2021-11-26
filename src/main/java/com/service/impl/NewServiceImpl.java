@@ -115,7 +115,26 @@ public class NewServiceImpl implements NewService {
         }
         return false;
     }
-/*@Override
+
+    @Override
+    public List<New> searchNews(String title) {
+        List<New> news = new ArrayList<>();
+        String sql = "SELECT * FROM news where title like ?";
+        try(Connection conn = DataSourceUtils.getConnection();
+            PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setString(1,"%"+title+"%");
+            try(ResultSet rs = st.executeQuery()) {
+                while (rs.next()) {
+                    New New = new New(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4));
+                    news.add(New);
+                }
+            }
+        } catch (SQLException e) {
+            logger.warning(e.getMessage());
+        }
+        return news;
+    }
+    /*@Override
     public void addUser(String newName) {
         String sql = "INSERT INTO user(name) VALUES(?)";
         try(Connection conn = DataSourceUtils.getConnection();

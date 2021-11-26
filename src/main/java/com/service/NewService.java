@@ -35,9 +35,15 @@ public interface NewService {
      */
     public Boolean dropNew(int id);
     /**
-     * 基于ID 更改指定新闻
+     *
      * @param id
      * @return
      */
     public Boolean modifyNew(int id,New n);
+    /**
+     * 基于title
+     * @param title
+     * @return
+     */
+    public List<New> searchNews(String title);
 }

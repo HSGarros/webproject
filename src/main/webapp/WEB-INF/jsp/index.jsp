@@ -64,6 +64,10 @@
     </style>
 </head>
 <body>
+<div class="major"></div>
+<div class="lab"></div>
+<div class="teacher"></div>
+<div class="job"></div>
 <div class="container">
     <div id="main">
         <div id="article">
@@ -89,6 +93,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>

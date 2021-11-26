@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.News;
 
 import com.entity.New;
 import com.service.NewService;
